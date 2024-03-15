@@ -1,3 +1,4 @@
+import io.github.pixee.security.ObjectInputFilters;
 import java.io.*;
 import java.net.*;
 
@@ -20,6 +21,7 @@ public class ServerMain
                         ObjectOutputStream(connectionToClient.getOutputStream());
                 ObjectInputStream is = new
                         ObjectInputStream(connectionToClient.getInputStream());
+                ObjectInputFilters.enableObjectFilterIfUnprotected(is);
 
                 Thread t = new Thread(new ServersListener(os,is));
                 t.start();
