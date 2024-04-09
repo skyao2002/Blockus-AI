@@ -687,7 +687,7 @@ public class BlokusBoard
                 {
                     String line= fromFile.nextLine();
 
-                    if(line.equals(""))
+                    if("".equals(line))
                         break;
                     lines.add(line);
                 }
