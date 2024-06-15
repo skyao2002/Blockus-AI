@@ -1,3 +1,4 @@
+import io.github.pixee.security.ObjectInputFilters;
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
@@ -61,6 +62,7 @@ public class ClientMain
 
                     ObjectInputStream is = new
                             ObjectInputStream(connectionToServer.getInputStream());
+                    ObjectInputFilters.enableObjectFilterIfUnprotected(is);
 
                     ObjectOutputStream os = new
                             ObjectOutputStream(connectionToServer.getOutputStream());
